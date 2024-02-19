@@ -1,0 +1,31 @@
+body{
+    background-image: url(../../images/background.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: top;
+    background-size: 100vw 100vh;
+    min-height: 175vh;
+    font-size: 18px;
+}
+
+#cim{
+    background-color: rgba(36, 36, 36, 0.8);
+    padding: 2em;
+    border-radius: 1em;
+    width: fit-content;
+    font-family: 'Montserrat Alternates', sans-serif;
+    color: white;
+    position: absolute;
+    bottom: 5vh;
+    left: 5vh;
+    max-width: 60vw;
+}
+
+.lead{
+    font-size: 2rem;
+    line-height: 1em;
+}
+
+#logo{
+    width: 3em;
+}
