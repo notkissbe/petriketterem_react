@@ -8,6 +8,7 @@ export function Fooldal() {
     <div>
       <Header></Header>
 
+
       <div id="cim" className="container">
         <h1 className="display-4">PETRIK ÉTTEREM</h1>
         <p className="lead">

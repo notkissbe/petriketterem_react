@@ -11,8 +11,8 @@ export function Header(){
                 <Link className="nav-brand mx-3" to="/">
                     <img id="logo" src="src/images/restaurantlogo.png" alt="logo"/>
                 </Link>
+                <Link className="nav-link mx-3" to="/rendeles" id="rendeles">Rendelés</Link>
                 <a className="nav-link mx-3" href='#elerhetosegek'>Elérhetőségek</a>
-                <Link className="nav-link mx-3" to="/etlap" id="etlap">Étlap</Link>
       </nav>
     </header>
     )
