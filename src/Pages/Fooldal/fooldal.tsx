@@ -1,6 +1,7 @@
 import { Header } from '../../components/Header/index'
 import { Footer } from '../../components/Footer/index'
 import './fooldal.css'
+import '../pages_shared.css'
 
 export function Fooldal() {
   return (
