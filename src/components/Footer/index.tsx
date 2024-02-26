@@ -4,7 +4,7 @@ import './index.css'
 export function Footer() {
   return (
       <div id='elerhetosegek' className="row">
-
+        
 
         <div className="col">
           <table className="table bg-dark" id="tablazat">
