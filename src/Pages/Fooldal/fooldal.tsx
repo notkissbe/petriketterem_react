@@ -2,6 +2,7 @@ import { Header } from '../../components/Header/index'
 import { Footer } from '../../components/Footer/index'
 import './fooldal.css'
 import '../pages_shared.css'
+import { Link } from 'react-router-dom'
 
 export function Fooldal() {
   return (
@@ -16,7 +17,9 @@ export function Fooldal() {
         </p>
         </div>
         <div className='rendeles_button'>
-          <button className='btn btn-outline-light btn-lg'>Rendelés</button>
+          <Link to={"/rendeles"}>
+            <button className='btn btn-outline-light btn-lg'>Rendelés</button>
+          </Link>
         </div>
         </div>
       <Footer></Footer>
