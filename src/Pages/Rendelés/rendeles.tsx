@@ -12,6 +12,7 @@ export function Rendeles() {
         <div id="rendelesContent" className="container">
             <h3>Mai ajánlatunk:</h3>
             
+            
         </div>
       <Footer></Footer>
     </div>
