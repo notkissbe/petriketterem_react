@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom'
 export function Fooldal() {
   return (
     <div>
-      <Header></Header>
+      <Header showExtraLink={false}></Header>
 
     <div id='fooldal'>
       <div id="cim" >

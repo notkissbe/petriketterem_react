@@ -9,10 +9,10 @@ import '../pages_shared.css'
 export function Rendeles() {
   return (
     <div>
-      <Header></Header>
+      <Header showExtraLink={true}></Header>
       <div id="rendelesContent" className="container">
         <div className='row'>
-          <div className='col border border-danger rounded'>
+          <div className='col border-3 border-top border-bottom border-danger'>
             <nav className="navbar navbar-light bg-dark">
               <form className="container-fluid justify-content-start">
                 <button className="btn btn-outline-light mx-4 btn-lg" type="button">Előétel</button>
