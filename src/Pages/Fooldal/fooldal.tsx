@@ -8,6 +8,7 @@ import { OpeningHours, Holiday } from '../../nyitva';
 
 export function Fooldal() {
   const [napok, setNapok]=useState([] as OpeningHours[])
+  const [unnepnapok, setUnnepNapok]=useState([] as Holiday[])
   return (
     <div>
       <Header showExtraLink={false}></Header>
@@ -25,7 +26,7 @@ export function Fooldal() {
           </Link>
         </div>
         </div>
-      <Footer napok={napokData, unnepnapokData}></Footer>
+      <Footer napok={napok, unnepnapok}></Footer>
     </div>
   )
 }
