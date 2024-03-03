@@ -1,12 +1,15 @@
+import { useState } from 'react'
 import { Header } from '../../components/Header/index'
 import { Footer } from '../../components/Footer/index'
 import { Kosar } from '../../components/kosar/kosar'
+import { OpeningHours, Holiday } from '../../nyitva';
 import '../../../node_modules/bootstrap/dist/css/bootstrap.css'
 import './rendeles.css'
 import '../pages_shared.css'
 
 
 export function Rendeles() {
+  const [napok, setNapok]=useState([] as OpeningHours[])
   return (
     <div>
       <Header showExtraLink={true}></Header>
@@ -40,7 +43,7 @@ export function Rendeles() {
         </div>
 
       </div>
-      <Footer></Footer>
+      <Footer napok={napok}></Footer>
     </div>
   )
 }

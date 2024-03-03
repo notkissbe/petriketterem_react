@@ -1,10 +1,13 @@
+import { useState } from 'react'
 import { Header } from '../../components/Header/index'
 import { Footer } from '../../components/Footer/index'
 import './fooldal.css'
 import '../pages_shared.css'
 import { Link } from 'react-router-dom'
+import { OpeningHours, Holiday } from '../../nyitva';
 
 export function Fooldal() {
+  const [napok, setNapok]=useState([] as OpeningHours[])
   return (
     <div>
       <Header showExtraLink={false}></Header>
@@ -22,7 +25,7 @@ export function Fooldal() {
           </Link>
         </div>
         </div>
-      <Footer></Footer>
+      <Footer napok={napokData, unnepnapokData}></Footer>
     </div>
   )
 }
