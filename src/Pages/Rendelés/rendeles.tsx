@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import React, { createElement, useState } from 'react'
 import { Header } from '../../components/Header/index'
 import { Footer } from '../../components/Footer/index'
 import { Kosar } from '../../components/kosar/kosar'
@@ -9,10 +9,13 @@ import './rendeles.css'
 import '../pages_shared.css'
 
 
-
 export function Rendeles() {
   const [napok, setNapok] = useState([] as OpeningHours[])
   const [pressed, setPressed] = useState();
+
+  function kategoriaHandler(e:any){
+    setPressed(e.target.value);
+  }
   
   return (
     <div>
@@ -23,12 +26,12 @@ export function Rendeles() {
           <div className='col'>
             <nav className="navbar navbar-light bg-dark border-3 border-top border-bottom border-danger">
               <form className="container-fluid justify-content-start">
-                <button className="btn btn-outline-light mx-4 btn-lg" value="eloetel" type="button">Előétel</button>
-                <button className="btn btn-outline-light mx-4 btn-lg" value="leves" type="button">Levesek</button>
-                <button className="btn btn-outline-light mx-4 btn-lg" value="foetel" type="button">Főételek</button>
-                <button className="btn btn-outline-light mx-4 btn-lg" value="koret" type="button">Köretek</button>
-                <button className="btn btn-outline-light mx-4 btn-lg" value="desszert" type="button">Desszertek</button>
-                <button className="btn btn-outline-light mx-4 btn-lg" value="ital" type="button">Italok</button>
+                <button className="btn btn-outline-light mx-4 btn-lg" value="eloetel" type="button" onClick={kategoriaHandler}>Előétel</button>
+                <button className="btn btn-outline-light mx-4 btn-lg" value="leves" type="button" onClick={kategoriaHandler}>Levesek</button>
+                <button className="btn btn-outline-light mx-4 btn-lg" value="foetel" type="button" onClick={kategoriaHandler}>Főételek</button>
+                <button className="btn btn-outline-light mx-4 btn-lg" value="koret" type="button" onClick={kategoriaHandler}>Köretek</button>
+                <button className="btn btn-outline-light mx-4 btn-lg" value="desszert" type="button" onClick={kategoriaHandler}>Desszertek</button>
+                <button className="btn btn-outline-light mx-4 btn-lg" value="ital" type="button" onClick={kategoriaHandler}>Italok</button>
               </form>
             </nav>
 
