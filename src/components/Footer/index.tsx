@@ -1,74 +1,6 @@
 import './index.css';
-import { FetchOpenHours, OpeningHours,CreateUnnepnap } from '../../nyitva';
 import React from 'react';
 
-
-function CreateNyitva() {
-
-  let openingHoursData = FetchOpenHours;
-
-    openingHoursData.forEach((entry: OpeningHours) => {
-        if (entry.closed == "ZÁRVA") {
-            return (
-                <div>
-                    <tr>
-                        <td>{entry.day}</td>
-                        <td colSpan={2}>Zárva</td>
-                    </tr>
-                </div>
-            )
-        } 
-        else {
-            return (
-                <div>
-                    <tr>
-                        <td>{entry.day}</td>
-                        <td>{entry.startTime.slice(0,5)}</td>
-                        <td>{entry.endTime.slice(0,5)}</td>
-                    </tr>
-                </div>
-            )
-        }
-
-
-    });
-
-    return (
-        <div></div>
-    )
-  let td1 = "";
-  let td2 = "";
-  let td3 = "";
-  openingHoursData.forEach((entry: OpeningHours) => {
-    if (entry.closed == "ZÁRVA") {
-      return (
-        <div>
-          <tr>
-            <td>{entry.day}</td>
-            <td colSpan={2}>Zárva</td>
-          </tr>
-        </div>
-      )
-    }
-    else {
-      return (
-        <div>
-          <tr>
-            <td>{entry.day}</td>
-            <td>{entry.startTime.slice(0, 5)}</td>
-            <td>{entry.endTime.slice(0, 5)}</td>
-          </tr>
-        </div>
-      )
-    }
-
-
-  });
-
-  return (
-    <div></div>
-  )
-}
 
 export function Footer() {
   return (
@@ -85,7 +17,6 @@ export function Footer() {
               <th>Zárás:</th>
             </tr>
           </thead>
-          <CreateReactNyitva />
 
         </table>
         <table className="table bg-dark" id="unnepnapok">
@@ -99,15 +30,7 @@ export function Footer() {
               <th>Zárás:</th>
             </tr>
           </thead>
-          <tbody>
-            {props.unnepnapok.map(holiday => (
-              <tr key={holiday.date}>
-                <td>{holiday.date}</td>
-                <td>{holiday.startTime}</td>
-                <td>{holiday.endTime}</td>
-              </tr>
-            ))}
-          </tbody>
+          
         </table>
       </div>
 

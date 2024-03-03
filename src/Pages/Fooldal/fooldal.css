@@ -16,7 +16,7 @@
     color: white;
     position: absolute;
     bottom: 5vh;
-    left: 5vh;
+    left: 5vw;
     max-width: 60vw;
 }
 
@@ -25,17 +25,16 @@
     line-height: 1em;
 }
 
-.rendeles_button{
+.rendeles_div{
     background-color: rgba(36, 36, 36, 0.8);
     padding: 4em;
     border-radius: 1em;
     width: fit-content;
     font-family: 'Montserrat Alternates', sans-serif;
-    font-size: 40px;
     color: white;
     position: absolute;
+    right: 5vw;
     bottom: 5vh;
-    left: 150vh;
     max-width: 60vw;
 }
 

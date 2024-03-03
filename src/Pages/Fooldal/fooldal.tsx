@@ -11,19 +11,19 @@ export function Fooldal() {
     <div>
       <Header showExtraLink={false}></Header>
 
-    <div id='fooldal'>
-      <div id="cim" >
-        <h1 className="display-4">PETRIK ÉTTEREM</h1>
-        <p className="lead">
-          Üdvözöljük Önöket a Petrik Étteremben, ahol az ízek és élmények találkoznak egy harmonikus kulináris utazás során!<hr/>Étteremünk büszkén kínálja vendégeinknek a minőségi alapanyagokból készült, kreatív és ínycsiklandó ételeket, melyeket a szenvedélyes szakácsaink készítenek el szeretettel.
-        </p>
+      <div id='fooldal'>
+        <div id="cim" className='border-3 border-top border-bottom border-light'>
+          <h1 className="display-4">PETRIK ÉTTEREM</h1>
+          <p className="lead">
+            Üdvözöljük Önöket a Petrik Étteremben, ahol az ízek és élmények találkoznak egy harmonikus kulináris utazás során!<hr />Étteremünk büszkén kínálja vendégeinknek a minőségi alapanyagokból készült, kreatív és ínycsiklandó ételeket, melyeket a szenvedélyes szakácsaink készítenek el szeretettel.
+          </p>
         </div>
-        <div className='rendeles_button'>
+        <div className='rendeles_div border-3 border-top border-bottom border-light'>
           <Link to={"/rendeles"}>
-            <button className='btn btn-outline-light btn-lg'>Rendelés</button>
+            <button className='rendeles_button btn btn-outline-light btn-lg '>Rendelés</button>
           </Link>
         </div>
-        </div>
+      </div>
       <Footer></Footer>
     </div>
   )
