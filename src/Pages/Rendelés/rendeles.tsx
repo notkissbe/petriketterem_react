@@ -12,6 +12,7 @@ import '../pages_shared.css'
 
 export function Rendeles() {
   const [napok, setNapok] = useState([] as OpeningHours[])
+
   return (
     <div>
       <Header showExtraLink={true}></Header>
