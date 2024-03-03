@@ -12,7 +12,8 @@ import '../pages_shared.css'
 
 export function Rendeles() {
   const [napok, setNapok] = useState([] as OpeningHours[])
-
+  const [pressed, setPressed] = useState();
+  
   return (
     <div>
       <Header showExtraLink={true}></Header>
@@ -22,12 +23,12 @@ export function Rendeles() {
           <div className='col'>
             <nav className="navbar navbar-light bg-dark border-3 border-top border-bottom border-danger">
               <form className="container-fluid justify-content-start">
-                <button className="btn btn-outline-light mx-4 btn-lg" type="button">Előétel</button>
-                <button className="btn btn-outline-light mx-4 btn-lg" type="button">Levesek</button>
-                <button className="btn btn-outline-light mx-4 btn-lg" type="button">Főételek</button>
-                <button className="btn btn-outline-light mx-4 btn-lg" type="button">Köretek</button>
-                <button className="btn btn-outline-light mx-4 btn-lg" type="button">Desszertek</button>
-                <button className="btn btn-outline-light mx-4 btn-lg" type="button">Italok</button>
+                <button className="btn btn-outline-light mx-4 btn-lg" value="eloetel" type="button">Előétel</button>
+                <button className="btn btn-outline-light mx-4 btn-lg" value="leves" type="button">Levesek</button>
+                <button className="btn btn-outline-light mx-4 btn-lg" value="foetel" type="button">Főételek</button>
+                <button className="btn btn-outline-light mx-4 btn-lg" value="koret" type="button">Köretek</button>
+                <button className="btn btn-outline-light mx-4 btn-lg" value="desszert" type="button">Desszertek</button>
+                <button className="btn btn-outline-light mx-4 btn-lg" value="ital" type="button">Italok</button>
               </form>
             </nav>
 
