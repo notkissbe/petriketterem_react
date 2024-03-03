@@ -11,10 +11,11 @@ import '../pages_shared.css'
 
 export function Rendeles() {
   const [napok, setNapok] = useState([] as OpeningHours[])
-  const [pressed, setPressed] = useState();
+  const [pressed, setPressed] = useState("");
 
   function kategoriaHandler(e:any){
     setPressed(e.target.value);
+    console.log("prop change")
   }
   
   return (
@@ -26,7 +27,7 @@ export function Rendeles() {
           <div className='col'>
             <nav className="navbar navbar-light bg-dark border-3 border-top border-bottom border-danger">
               <form className="container-fluid justify-content-start">
-                <button className="btn btn-outline-light mx-4 btn-lg" value="eloetel" type="button" onClick={kategoriaHandler}>Előétel</button>
+                <button className="btn btn-outline-light mx-4 btn-lg" value="Előétel" type="button" onClick={kategoriaHandler}>Előétel</button>
                 <button className="btn btn-outline-light mx-4 btn-lg" value="leves" type="button" onClick={kategoriaHandler}>Levesek</button>
                 <button className="btn btn-outline-light mx-4 btn-lg" value="foetel" type="button" onClick={kategoriaHandler}>Főételek</button>
                 <button className="btn btn-outline-light mx-4 btn-lg" value="koret" type="button" onClick={kategoriaHandler}>Köretek</button>
@@ -38,7 +39,7 @@ export function Rendeles() {
 
 
             <div id='MenuBox'>
-              <DrawDisplay />
+              <DrawDisplay term={pressed}/>
             </div>
 
           </div>

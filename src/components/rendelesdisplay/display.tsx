@@ -1,7 +1,7 @@
-import { } from "react";
-import logo from '../../../public/back-pub.png'
 import 'bootstrap/dist/css/bootstrap.css'
 import './index.css'
+import { useEffect, useState } from "react";
+
 
 interface Kartya {
     //kepurl:string; -> adatbazishoz meg hozza kell adni;
@@ -11,12 +11,7 @@ interface Kartya {
     allergenek: string;
 }
 
-let kartyaarr: Kartya[];
 
-async function fetchData() {
-    let eredmeny = await fetch('http://localhost:3000/etelek');
-    kartyaarr = await eredmeny.json();
-}
 
 export function CreateCard(props: Kartya) {
 
@@ -36,12 +31,34 @@ export function CreateCard(props: Kartya) {
     )
 
 }
-export function DrawDisplay() {
+export function DrawDisplay({ term }: { term: string }) {
+
+
+    const [kartyak, setKartyak] = useState([] as Kartya[]);
+    const [searchTerm, setSearchTerm] = useState(term);
+
+    console.log("dadsa");
+    useEffect(() => {
+        async function load() {
+            let eredmeny = await fetch('http://localhost:3000/etelek');
+            let kartyaarr = await eredmeny.json();
+            if(searchTerm != ""){
+                const kivalogatott = kartyak.filter(kartya => kartya.kategoria.includes(searchTerm));
+                setKartyak(kivalogatott);
+            }
+            setKartyak(kartyaarr);
+            console.log(searchTerm)
+        }
+        load();
+    }, [searchTerm])
+
 
     return (
         <div className="row">
-            <CreateCard nev="Elso" kategoria="sajtok" ar="22" allergenek="Tojas,gluten"/>
-
+            {/*<CreateCard nev="Elso" kategoria="sajtok" ar="22" allergenek="Tojas,gluten"/>*/}
+            {
+                kartyak.map(etel => <CreateCard nev={etel.nev} kategoria={etel.kategoria} ar={etel.ar} allergenek={etel.allergenek} />)
+            }
         </div>
     )
 }
