@@ -40,14 +40,6 @@ export function DrawDisplay({ term }: { term: string }) {
 
     console.log("drawdisplay isplay");
 
-    useEffect(() => {
-        async function load() {
-            let eredmeny = await fetch('http://localhost:3000/etelek');
-            let kartyaarr = await eredmeny.json();
-            setKartyak(kartyaarr);
-        }
-        load();
-    }, [])
 
     useEffect(() => {
         async function load() {
@@ -55,9 +47,11 @@ export function DrawDisplay({ term }: { term: string }) {
             let kartyaarr = await eredmeny.json();
             if(searchTerm != ""){
                 const kivalogatott = kartyak.filter(kartya => kartya.kategoria.includes(searchTerm));
-                await setKartyak(kivalogatott);
+                setKartyak(kivalogatott);
             }
-            await setKartyak(kartyaarr);
+            else{
+                setKartyak(kartyaarr);
+            }
             console.log(kartyaarr);
             console.log(searchTerm)
         }
