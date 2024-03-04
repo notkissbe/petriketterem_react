@@ -36,8 +36,8 @@ export function DrawDisplay({ term }: { term: string }) {
 
     const [kartyak, setKartyak] = useState([] as Kartya[]);
     const [searchTerm, setSearchTerm] = useState(term);
-
     console.log("dadsa");
+    
     useEffect(() => {
         async function load() {
             let eredmeny = await fetch('http://localhost:3000/etelek');
