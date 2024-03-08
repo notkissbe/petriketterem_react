@@ -35,25 +35,23 @@ export function DrawDisplay({ term }: { term: string }) {
 
 
     const [kartyak, setKartyak] = useState([] as Kartya[]);
-    //const [searchTerm, setSearchTerm] = useState(term);
+    //const [searchTerm, setSearchTerm] = useState('');
+    //setSearchTerm(term);
     let searchTerm = term;
-
-    console.log("drawdisplay isplay");
 
 
     useEffect(() => {
         async function load() {
             let eredmeny = await fetch('http://localhost:3000/etelek');
-            let kartyaarr = await eredmeny.json();
+            let kartyaarr:Kartya[] = await eredmeny.json();
             if(searchTerm != ""){
-                const kivalogatott = kartyak.filter(kartya => kartya.kategoria.includes(searchTerm));
+                const kivalogatott = kartyaarr.filter(kartya => kartya.kategoria.includes(searchTerm));
                 setKartyak(kivalogatott);
             }
             else{
                 setKartyak(kartyaarr);
             }
-            console.log(kartyaarr);
-            console.log(searchTerm)
+
         }
         load();
     }, [searchTerm])
