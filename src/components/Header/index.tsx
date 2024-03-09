@@ -1,5 +1,5 @@
 import {} from 'react';
-import '../../../node_modules/bootstrap/dist/css/bootstrap.css';
+import 'bootstrap/dist/css/bootstrap.css';
 import '../../index.css'
 import { Link } from 'react-router-dom';
 import './index.css'
@@ -11,7 +11,7 @@ interface HeaderProps {
   export function Header({ showExtraLink }: HeaderProps) {
     return (
       <header>
-        <nav className="navbar bg-dark">
+        <nav className="navbar bg-dark mx-3">
           <Link className="nav-brand mx-3" to="/">
             <img id="logo" src="src/images/restaurantlogo.png" alt="logo"/>
           </Link>
