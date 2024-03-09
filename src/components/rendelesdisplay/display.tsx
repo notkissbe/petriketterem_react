@@ -1,9 +1,10 @@
 import 'bootstrap/dist/css/bootstrap.css'
 import './index.css'
 import { useEffect, useState } from "react";
+import { KosarAdd } from '../kosar/kosar';
 
 
-interface Kartya {
+export interface Kartya {
     kepurl:string;
     nev: string;
     kategoria: string;
@@ -23,7 +24,7 @@ export function CreateCard(props: Kartya) {
                 <p className="text-end" hidden >{props.kategoria}</p>
                 <p className="card-text">{props.allergenek}</p>
                 <div className="row">
-                    <button className="col btn btn-outline-light btn-sm">Hozzáadás</button>
+                    <button className="col btn btn-outline-light btn-sm" /*onClick={KosarAdd(props.nev,props.ar)}*/>Hozzáadás</button>
                     <p className="col text-center">{props.ar + " ft"}</p>
                 </div>
             </div>
@@ -61,7 +62,7 @@ export function DrawDisplay({ term }: { term: string }) {
         <div className="row">
             {/*<CreateCard nev="Elso" kategoria="sajtok" ar="22" allergenek="Tojas,gluten"/>*/}
             {
-                kartyak.map(etel => <CreateCard kepurl={"./etelkepek/SültKeszeg.jfif"} nev={etel.nev} kategoria={etel.kategoria} ar={etel.ar} allergenek={etel.allergenek} />)
+                kartyak.map(etel => <CreateCard kepurl={etel.kepurl} nev={etel.nev} kategoria={etel.kategoria} ar={etel.ar} allergenek={etel.allergenek} />)
             }
         </div>
     )
