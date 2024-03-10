@@ -5,7 +5,7 @@ import { KosarAdd } from '../kosar/kosar';
 
 
 export interface Kartya {
-    kepurl:string;
+    kepek:string;
     nev: string;
     kategoria: string;
     ar: string;
@@ -18,7 +18,7 @@ export function CreateCard(props: Kartya) {
 
     return (
         <div className="card">
-            <img src={props.kepurl} alt="" className="card-img-top" />
+            <img src={props.kepek} alt="" className="card-img-top" />
             <div className="card-body">
                 <h5 className="card-title" >{props.nev}</h5>
                 <p className="text-end" hidden >{props.kategoria}</p>
@@ -62,7 +62,7 @@ export function DrawDisplay({ term }: { term: string }) {
         <div className="row">
             {/*<CreateCard nev="Elso" kategoria="sajtok" ar="22" allergenek="Tojas,gluten"/>*/}
             {
-                kartyak.map(etel => <CreateCard kepurl={etel.kepurl} nev={etel.nev} kategoria={etel.kategoria} ar={etel.ar} allergenek={etel.allergenek} />)
+                kartyak.map(etel => <CreateCard kepek={etel.kepek} nev={etel.nev} kategoria={etel.kategoria} ar={etel.ar} allergenek={etel.allergenek} />)
             }
         </div>
     )
