@@ -1,8 +1,37 @@
+import { Kartya } from '../AdminDisplay/AdminDisplay';
 import './index.css';
 import React from 'react';
-
+import { useEffect, useState } from "react";
 
 export function Footer() {
+
+  const [nyit, setnyit] = useState([] as Nyitva[]);
+  const [unnep, setUnnep]=useState([] as Nyitva[]);
+
+  interface Nyitva {
+    nap:string;
+    kezdo_idopont: string;
+    veg_idopont: string;
+    zarva: number;
+  }
+
+  async function load(){
+    let eredmeny=await fetch('http://localhost:3000/nyitvatartas');
+    let eredmeny2=await fetch('http://localhost:3000/unnepnapok');
+    let nyitas:Nyitva[]=await eredmeny.json();
+    let nyitas2:Nyitva[]=await eredmeny2.json();
+
+    nyitas.forEach(element =>{
+      if(element.zarva==1)
+      {
+        setnyit("ZÁRVA")
+      }
+    })
+    setnyit(nyitas);
+    setUnnep(nyitas2);
+  }
+
+
   return (
     <div id='elerhetosegek' className="row">
       <div className="col">
@@ -17,6 +46,9 @@ export function Footer() {
               <th>Zárás:</th>
             </tr>
           </thead>
+          <tbody>
+            {nyit.map(ny=><tr><td>{ny.nap}</td><td>{ny.kezdo_idopont}</td><td>{ny.veg_idopont}</td></tr>)}
+          </tbody>
 
         </table>
         <table className="table bg-dark" id="unnepnapok">
@@ -30,6 +62,9 @@ export function Footer() {
               <th>Zárás:</th>
             </tr>
           </thead>
+          <tbody>
+            {unnep.map(u=><tr><td>{u.nap}</td><td>{u.kezdo_idopont}</td><td>{u.veg_idopont}</td></tr>)}
+          </tbody>
           
         </table>
       </div>
