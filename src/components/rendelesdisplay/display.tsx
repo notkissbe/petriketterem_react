@@ -18,7 +18,7 @@ export function CreateCard(props: Kartya) {
 
     return (
         <div className="card">
-            <img src={props.kepek} alt="" className="card-img-top" />
+            <img src={props.kepek} alt="" className="card-img-top rounded" />
             <div className="card-body">
                 <h5 className="card-title" >{props.nev}</h5>
                 <p className="text-end" hidden >{props.kategoria}</p>
