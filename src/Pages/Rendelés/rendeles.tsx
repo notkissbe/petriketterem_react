@@ -22,7 +22,7 @@ export function Rendeles() {
   return (
     <div>
       <Header showExtraLink={true}></Header>
-      <div id="rendelesContent">
+      <div id="rendelesContent" className='mx-3'>
 
         <div className='row'>
           <div className='col'>
@@ -40,7 +40,7 @@ export function Rendeles() {
 
 
 
-            <div id='MenuBox'>
+            <div id='MenuBox' className='mx-3'>
               
               <DrawDisplay term={pressed}/>
             </div>
