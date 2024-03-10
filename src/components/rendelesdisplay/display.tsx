@@ -17,7 +17,7 @@ export interface Kartya {
 export function CreateCard(props: Kartya) {
 
     return (
-        <div className="card">
+        <div className="card mt-3">
             <img src={props.kepek} alt="" className="card-img-top rounded" />
             <div className="card-body text-center">
                 <h5 className="card-title" >{props.nev}</h5>
