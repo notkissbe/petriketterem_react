@@ -22,18 +22,19 @@ export function Rendeles() {
   return (
     <div>
       <Header showExtraLink={true}></Header>
-      <div id="rendelesContent" className="container">
+      <div id="rendelesContent">
 
         <div className='row'>
           <div className='col'>
             <nav className="navbar navbar-light bg-dark border-3 border-top border-bottom border-danger">
               <form className="container-fluid justify-content-start">
-                <button className="btn btn-outline-light mx-4 btn-lg" value="Előétel" type="button" onClick={kategoriaHandler}>Előétel</button>
-                <button className="btn btn-outline-light mx-4 btn-lg" value="Leves" type="button" onClick={kategoriaHandler}>Levesek</button>
-                <button className="btn btn-outline-light mx-4 btn-lg" value="Főétel" type="button" onClick={kategoriaHandler}>Főételek</button>
-                <button className="btn btn-outline-light mx-4 btn-lg" value="Köret" type="button" onClick={kategoriaHandler}>Köretek</button>
-                <button className="btn btn-outline-light mx-4 btn-lg" value="Sütemény" type="button" onClick={kategoriaHandler}>Desszertek</button>
-                <button className="btn btn-outline-light mx-4 btn-lg" value="Ial" type="button" onClick={kategoriaHandler}>Italok</button>
+                <button className="btn btn-outline-light mx-auto btn-lg" value="Előétel" type="button" onClick={kategoriaHandler}>Előétel</button>
+                <button className="btn btn-outline-light mx-auto btn-lg" value="Leves" type="button" onClick={kategoriaHandler}>Levesek</button>
+                <button className="btn btn-outline-light mx-auto btn-lg" value="Főétel" type="button" onClick={kategoriaHandler}>Főételek</button>
+                <button className="btn btn-outline-light mx-auto btn-lg" value="Köret" type="button" onClick={kategoriaHandler}>Köretek</button>
+                <button className="btn btn-outline-light mx-auto btn-lg" value="Sütemény" type="button" onClick={kategoriaHandler}>Desszertek</button>
+                <button className="btn btn-outline-light mx-auto btn-lg" value="Nem alkoholos ital" type="button" onClick={kategoriaHandler}>Alkoholmentes</button>
+                <button className="btn btn-outline-light mx-auto btn-lg" value="Alkoholos" type="button" onClick={kategoriaHandler}>Alkoholos</button>
               </form>
             </nav>
 

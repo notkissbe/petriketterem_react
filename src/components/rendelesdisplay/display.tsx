@@ -45,7 +45,12 @@ export function DrawDisplay({ term }: { term: string }) {
     useEffect(() => {
         async function load() {
             let eredmeny = await fetch('http://localhost:3000/etelek');
+            let eredmeny2=await fetch('http://localhost:3000/italok');
             let kartyaarr:Kartya[] = await eredmeny.json();
+            let kartyaarr2:Kartya[]=await eredmeny2.json();
+            kartyaarr2.forEach(element => {
+                kartyaarr.push(element);
+            });
             console.log(kartyaarr);
             if(searchTerm != ""){
                 const kivalogatott = kartyaarr.filter(kartya => kartya.kategoria.includes(searchTerm));
@@ -58,6 +63,7 @@ export function DrawDisplay({ term }: { term: string }) {
         }
         load();
     }, [searchTerm])
+
 
     return (
         <div className="row">
