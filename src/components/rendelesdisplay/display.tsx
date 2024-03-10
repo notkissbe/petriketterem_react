@@ -19,13 +19,14 @@ export function CreateCard(props: Kartya) {
     return (
         <div className="card">
             <img src={props.kepek} alt="" className="card-img-top rounded" />
-            <div className="card-body">
+            <div className="card-body text-center">
                 <h5 className="card-title" >{props.nev}</h5>
                 <p className="text-end" hidden >{props.kategoria}</p>
                 <p className="card-text">{props.allergenek}</p>
                 <div className="row">
-                    <button className="col btn btn-outline-light btn-sm" /*onClick={KosarAdd(props.nev,props.ar)}*/>Hozzáadás</button>
-                    <p className="col text-center">{props.ar + " ft"}</p>
+                    <p className="col">{props.ar + " ft"}</p>
+                    <p></p>
+                    <button className="col btn btn-outline-light btn-sm position-absolute bottom-0 start-0" /*onClick={KosarAdd(props.nev,props.ar)}*/>Hozzáadás</button>
                 </div>
             </div>
         </div>
