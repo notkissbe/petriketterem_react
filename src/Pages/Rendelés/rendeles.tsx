@@ -8,11 +8,23 @@ import '../../../node_modules/bootstrap/dist/css/bootstrap.css'
 import './rendeles.css'
 import '../pages_shared.css'
 
+export interface KosarElem {
+  nev:string,
+  ar:string
+}
+
+
 
 export function Rendeles() {
   const [napok, setNapok] = useState([] as OpeningHours[])
   const [pressed, setPressed] = useState("");
+  const [kosar,setKosar] = useState([] as KosarElem[])
 
+  function handleKosarAdd(nev:string, ar:string){
+    let elem:KosarElem = {nev:nev, ar:ar};
+    let bovitett = kosar.concat(elem);
+    setKosar(bovitett);
+}
 
   function kategoriaHandler(e:any){
     setPressed(e.target.value);
@@ -49,7 +61,7 @@ export function Rendeles() {
 
 
           <div id='KosarDiv' className='col-3'>
-            <Kosar />
+            <Kosar kosarElemek={kosar}/>
           </div>
 
         </div>
