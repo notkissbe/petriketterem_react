@@ -55,6 +55,7 @@ export function Rendeles() {
         </div>
 
       </div>
+      <hr></hr>
       <Footer napok={napok}></Footer>
     </div>
   )
