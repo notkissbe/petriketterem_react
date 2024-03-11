@@ -1,8 +1,7 @@
 import 'bootstrap/dist/css/bootstrap.css'
 import './index.css'
-import { useEffect, useState } from "react";
-import { KosarAdd } from '../kosar/kosar';
-
+import React, { useEffect, useState } from "react";
+import { KosarElem } from '../../Pages/Rendelés/rendeles';
 
 export interface Kartya {
     kepek:string;
@@ -12,6 +11,11 @@ export interface Kartya {
     allergenek: string;
 }
 
+
+function KosarAdd({e}:{e:React.MouseEvent<HTMLButtonElement>},nev:string,ar:string){
+    let item:KosarElem = {nev:nev, ar:ar};
+    localStorage.setItem("Kosar", JSON.stringify(item));
+}
 
 
 export function CreateCard(props: Kartya) {
@@ -26,7 +30,7 @@ export function CreateCard(props: Kartya) {
                 <div className="row">
                     <p className="col">{props.ar + " ft"}</p>
                     <p></p>
-                    <button className="col btn btn-outline-light btn-sm position-absolute bottom-0 start-0" /*onClick={KosarAdd(props.nev,props.ar)}*/>Hozzáadás</button>
+                    <button className="col btn btn-outline-light btn-sm position-absolute bottom-0 start-0" onClick={KosarAdd(props.nev,props.ar)}>Hozzáadás</button>
                 </div>
             </div>
         </div>
@@ -51,7 +55,6 @@ export function DrawDisplay({ term }: { term: string }) {
             kartyaarr2.forEach(element => {
                 kartyaarr.push(element);
             });
-            console.log(kartyaarr);
             if(searchTerm != ""){
                 const kivalogatott = kartyaarr.filter(kartya => kartya.kategoria.includes(searchTerm));
                 setKartyak(kivalogatott);

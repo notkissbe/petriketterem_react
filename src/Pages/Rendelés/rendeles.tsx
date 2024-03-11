@@ -3,7 +3,6 @@ import { Header } from '../../components/Header/index'
 import { Footer } from '../../components/Footer/index'
 import { Kosar } from '../../components/kosar/kosar'
 import { DrawDisplay } from '../../components/rendelesdisplay/display'
-import { OpeningHours, Holiday } from '../../nyitva';
 import '../../../node_modules/bootstrap/dist/css/bootstrap.css'
 import './rendeles.css'
 import '../pages_shared.css'
@@ -16,14 +15,38 @@ export interface KosarElem {
 
 
 export function Rendeles() {
-  const [napok, setNapok] = useState([] as OpeningHours[])
   const [pressed, setPressed] = useState("");
   const [kosar,setKosar] = useState([] as KosarElem[])
 
-  function handleKosarAdd(nev:string, ar:string){
+ /* function handleKosarAdded(nev:string, ar:string){
+    
     let elem:KosarElem = {nev:nev, ar:ar};
     let bovitett = kosar.concat(elem);
     setKosar(bovitett);
+}*/
+  useEffect(()=>{
+    window.addEventListener('storage',()=>{
+      if (localStorage.length > 0){
+        const kosarTartalom = localStorage.getItem("Kosar")
+        console.log();
+        /*if (localStorage.getItem("Kosar") != null) {
+          setKosar(JSON.parse(localStorage.getItem("Kosar")) || [])
+        }*/
+        
+      }
+    })
+  })
+
+  async function callStorageEvent() {
+    var temp = [] as KosarElem[]
+    await setKosar([...kosar])
+    for (var i = 0; i < localStorage.length; i++) {
+        const item = localStorage.getItem(`Kosar`)
+        if (item != null) {
+            await temp.push(JSON.parse(item))
+        }
+    }
+    await setKosar(temp)
 }
 
   function kategoriaHandler(e:any){
@@ -68,7 +91,7 @@ export function Rendeles() {
 
       </div>
       <hr></hr>
-      <Footer napok={napok}></Footer>
+      <Footer></Footer>
     </div>
   )
 }
