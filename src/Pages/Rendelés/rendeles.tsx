@@ -16,7 +16,6 @@ export interface KosarElem {
 
 export function Rendeles() {
   const [pressed, setPressed] = useState("");
-  const [kosar,setKosar] = useState([] as KosarElem[])
 
  /* function handleKosarAdded(nev:string, ar:string){
     
@@ -24,22 +23,10 @@ export function Rendeles() {
     let bovitett = kosar.concat(elem);
     setKosar(bovitett);
 }*/
-  useEffect(()=>{
-    
-  })
+useEffect(()=>{
+  window.dispatchEvent(new Event("storage"))
 
-
-  async function callStorageEvent() {
-    var temp = [] as KosarElem[]
-    await setKosar([...kosar])
-    for (var i = 0; i < localStorage.length; i++) {
-        const item = localStorage.getItem(`Kosar`)
-        if (item != null) {
-            await temp.push(JSON.parse(item))
-        }
-    }
-    await setKosar(temp)
-}
+},[]);
 
   function kategoriaHandler(e:any){
     setPressed(e.target.value);

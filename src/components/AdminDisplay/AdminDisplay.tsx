@@ -24,7 +24,7 @@ export function CreateCard(props: Kartya) {
                 <div className="row">
                     <p className="col">{props.ar + " ft"}</p>
                     <p></p>
-                    <button className="col btn btn-outline-light btn-sm position-absolute bottom-0 start-0" /*onClick={KosarAdd(props.nev,props.ar)}*/>Hozzáadás</button>
+                    <button className="col btn btn-outline-light btn-sm position-absolute bottom-0 start-0" /*onClick={KosarAdd(props.nev,props.ar)}*/>Törlés</button>
                 </div>
             </div>
         </div>

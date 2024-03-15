@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Kartya } from '../rendelesdisplay/display';
 import '../../../node_modules/bootstrap/dist/css/bootstrap.css';
 import '../../index.css'
@@ -9,18 +9,22 @@ import { KosarElem } from '../../Pages/Rendelés/rendeles';
 
 export function Kosar() {
     const [kosar, setKosar] = useState([] as KosarElem[])
-
-    window.addEventListener('storage', () => {
+    function load(){
         if (localStorage.length > 0) {
             var old: KosarElem[] = JSON.parse(localStorage.getItem("Kosar") || '{}');
             setKosar(old);
-            /*if (localStorage.getItem("Kosar") != null) {
-              setKosar(JSON.parse(localStorage.getItem("Kosar")) || [])
-            }*/
         }
-        //console.log(kosar[0].ar);
-    })
-    console.log(kosar.length)
+        else{
+            setKosar([]);
+        }
+    }
+    window.addEventListener("storage", load)
+
+    function handleTorles(){
+        localStorage.clear();
+        load();
+    }
+
     if (kosar.length == 0) {
         return (
             <div id='kosa' className='border border-3 rounded'>
@@ -38,13 +42,13 @@ export function Kosar() {
             <hr />
             <ul>
                 {
-                    kosar.map(elem => <li id={elem.nev}>{elem.nev}, {elem.ar}</li>)
+                    kosar.map(elem => <li>{elem.nev}, {elem.ar}</li>)
                 }
             </ul>
             <hr />
             <p className='mx-3'>Összeg: </p>
             <div className='row'>
-            <button className='btn text-center'>Kosár ürítése</button>
+            <button className='btn text-center' onClick={handleTorles}>Kosár ürítése</button>
             <button className='btn '>Rendelés</button>
             </div>
         </div>
