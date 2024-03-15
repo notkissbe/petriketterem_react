@@ -7,25 +7,49 @@ import { KosarElem } from '../../Pages/Rendelés/rendeles';
 
 
 
-export function Kosar({kosarElemek}:{kosarElemek:KosarElem[]}){
-    
-    console.log(kosarElemek)
-    if (kosarElemek.length == 0) {
-        return(
+export function Kosar() {
+    const [kosar, setKosar] = useState([] as KosarElem[])
+
+    window.addEventListener('storage', () => {
+        if (localStorage.length > 0) {
+            var old: KosarElem[] = JSON.parse(localStorage.getItem("Kosar") || '{}');
+            setKosar(old);
+            /*if (localStorage.getItem("Kosar") != null) {
+              setKosar(JSON.parse(localStorage.getItem("Kosar")) || [])
+            }*/
+        }
+        //console.log(kosar[0].ar);
+    })
+    console.log(kosar.length)
+    if (kosar.length == 0) {
+        return (
             <div id='kosa' className='border border-3 rounded'>
                 <h3 className='text-center'>Kosár:</h3>
                 <hr />
-                
+
                 <p className='text-center'>Jelenleg sajnos üres :c</p>
             </div>
         )
     }
-    else{
-        <ul>
+    else {
+        return(
+        <div id='kosa' className='border border-3 rounded'>
+            <h3 className='text-center'>Kosár:</h3>
+            <hr />
+            <ul>
                 {
-                    kosarElemek.map(elem => <li>{elem.nev}, elem.ar</li>)
+                    kosar.map(elem => <li id={elem.nev}>{elem.nev}, {elem.ar}</li>)
                 }
-        </ul>
+            </ul>
+            <hr />
+            <p className='mx-3'>Összeg: </p>
+            <div className='row'>
+            <button className='btn text-center'>Kosár ürítése</button>
+            <button className='btn '>Rendelés</button>
+            </div>
+        </div>
+        )
+
     }
 }
 

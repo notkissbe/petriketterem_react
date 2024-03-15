@@ -11,11 +11,41 @@ export interface Kartya {
     allergenek: string;
 }
 
-
-function KosarAdd({e}:{e:React.MouseEvent<HTMLButtonElement>},nev:string,ar:string){
-    let item:KosarElem = {nev:nev, ar:ar};
-    localStorage.setItem("Kosar", JSON.stringify(item));
+function appendToStorage(name:string, data:KosarElem){
+    var old:KosarElem[] = JSON.parse(localStorage.getItem(name)||'{}');
+    //console.log(localStorage.length)
+    let datao:KosarElem[] = [];
+    if(localStorage.length == 0){
+        datao.push(data);
+    }
+    else{
+        old.forEach(element => {
+            datao.push(element)
+        });
+        datao.push(data);
+        //datao = [...old, data];
+    }
+    //console.log(datao);
+    //old.push(data);
+    localStorage.setItem("Kosar",JSON.stringify(datao));
+    window.dispatchEvent(new Event("storage"))
+}   
+/*
+function KosarAdd(event:React.MouseEvent<HTMLButtonElement>,props:Kartya){
+    console.log(event.target);
+    //let item:KosarElem = {nev:nev, ar:ar};
+    localStorage.removeItem("Kosar");
+    //localStorage.setItem("Kosar", JSON.stringify(item));
+    
 }
+*/
+const AddKosar = (nev:string,ar:string) => {
+    let item:KosarElem = {nev:nev, ar:ar}
+    //let jelenlegiKosar = localStorage.getItem("Kosar");
+    appendToStorage("Kosar",item);
+    //localStorage.setItem("Kosar", JSON.stringify(item));
+  }
+
 
 
 export function CreateCard(props: Kartya) {
@@ -30,7 +60,7 @@ export function CreateCard(props: Kartya) {
                 <div className="row">
                     <p className="col">{props.ar + " ft"}</p>
                     <p></p>
-                    <button className="col btn btn-outline-light btn-sm position-absolute bottom-0 start-0" onClick={KosarAdd(props.nev,props.ar)}>Hozzáadás</button>
+                    <button className="col btn btn-outline-light btn-sm position-absolute bottom-0 start-0" onClick={()=>AddKosar(props.nev,props.ar)}>Hozzáadás</button>
                 </div>
             </div>
         </div>

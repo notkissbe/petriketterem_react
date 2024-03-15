@@ -25,17 +25,9 @@ export function Rendeles() {
     setKosar(bovitett);
 }*/
   useEffect(()=>{
-    window.addEventListener('storage',()=>{
-      if (localStorage.length > 0){
-        const kosarTartalom = localStorage.getItem("Kosar")
-        console.log();
-        /*if (localStorage.getItem("Kosar") != null) {
-          setKosar(JSON.parse(localStorage.getItem("Kosar")) || [])
-        }*/
-        
-      }
-    })
+    
   })
+
 
   async function callStorageEvent() {
     var temp = [] as KosarElem[]
@@ -84,7 +76,7 @@ export function Rendeles() {
 
 
           <div id='KosarDiv' className='col-3'>
-            <Kosar kosarElemek={kosar}/>
+            <Kosar/>
           </div>
 
         </div>

@@ -30,7 +30,7 @@ export function Footer() {
     setnyit(nyitas);
     setUnnep(nyitas2);
   }
-  load();
+  //load();
 
 
   return (
