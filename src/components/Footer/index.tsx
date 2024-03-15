@@ -24,12 +24,13 @@ export function Footer() {
     nyitas.forEach(element =>{
       if(element.zarva==1)
       {
-        setnyit("ZÁRVA")
+        //setnyit("ZÁRVA")
       }
     })
     setnyit(nyitas);
     setUnnep(nyitas2);
   }
+  load();
 
 
   return (
