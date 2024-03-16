@@ -15,7 +15,7 @@ interface HeaderProps {
           <Link className="nav-brand mx-3" to="/">
             <img id="logo" src="src/images/restaurantlogo.png" className='img-fluid' alt="logo"/>
           </Link>
-            {showExtraLink && <a className="nav-link mx-3" href='/#elerhetosegek'>Főoldal</a>}
+            {showExtraLink && <a className="nav-link mx-3" href='/'>Főoldal</a>}
           <a className="nav-link mx-3" href='#elerhetosegek'>Elérhetőségek</a>
         </nav>
       </header>
