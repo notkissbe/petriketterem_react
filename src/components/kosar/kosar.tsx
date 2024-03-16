@@ -1,5 +1,4 @@
-import { useEffect, useState } from 'react';
-import { Kartya } from '../rendelesdisplay/display';
+import {useState } from 'react';
 import '../../../node_modules/bootstrap/dist/css/bootstrap.css';
 import '../../index.css'
 import './index.css'
