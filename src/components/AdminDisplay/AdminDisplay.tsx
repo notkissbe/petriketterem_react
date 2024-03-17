@@ -30,16 +30,16 @@ export function CreateCard(props: Kartya) {
     )
 
 }
-function handleTorles(nev:string,kategoria:string){
+async function handleTorles(nev:string,kategoria:string){
     console.log(kategoria)
     if (window.confirm(`Biztosan törölni akarja a következőt?\n${nev}`)){
         if(kategoria=="Nem alkoholos ital" || kategoria == "Alkoholos"){
-            fetch('http://localhost:3000/ital:' + encodeURI(nev),{
+            await fetch('http://localhost:3000/ital:' + encodeURI(nev),{
                 method: 'DELETE'
             })
         }
         else{
-            fetch('http://localhost:3000/etel' + encodeURI(nev),{
+            await fetch('http://localhost:3000/etel' + encodeURI(nev),{
                 method: 'DELETE'
             })
         }
