@@ -52,7 +52,7 @@ export function CreateCard(props: Kartya) {
 
     return (
         <div className="card mt-3 mx-auto">
-            <img src={props.kepek} alt="" className="card-img-top rounded CardImage" />
+            <img src={"http://localhost:3000/"+props.kepek} alt="" className="card-img-top rounded CardImage" />
             <div className="card-body text-center">
                 <h5 className="card-title" >{props.nev}</h5>
                 <p className="text-end" hidden >{props.kategoria}</p>
@@ -60,7 +60,7 @@ export function CreateCard(props: Kartya) {
                 <div className="row">
                     <p className="col">{props.ar + " ft"}</p>
                     <p></p>
-                    <button className="col btn btn-outline-light btn-sm position-absolute bottom-0 start-0" onClick={()=>AddKosar(props.nev,props.ar)}>Hozzáadás</button>
+                    <button className="col btn btn-outline-light btn-sm position-absolute bottom-0 start-0" onClick={()=>AddKosar(props.nev,props.ar)}>Kosárba</button>
                 </div>
             </div>
         </div>
