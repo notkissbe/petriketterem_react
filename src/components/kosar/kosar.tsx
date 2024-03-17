@@ -40,7 +40,7 @@ export function Kosar() {
                 <h3 className='text-center'>Kosár:</h3>
                 <hr />
 
-                <p className='text-center'>Jelenleg sajnos üres 🐘💥╾━╤デ╦︻ඞා</p>
+                <p className='text-center'>Jelenleg sajnos üres <br></br>🐘💥╾━╤デ╦︻ඞා</p>
             </div>
         )
     }
