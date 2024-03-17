@@ -36,7 +36,7 @@ export function Kosar() {
 
     if (kosar.length == 0) {
         return (
-            <div id='kosa' className='border border-3 rounded'>
+            <div id='kosa' className='border border-3 rounded sticky-top'>
                 <h3 className='text-center'>Kosár:</h3>
                 <hr />
 
@@ -46,16 +46,16 @@ export function Kosar() {
     }
     else {
         return(
-        <div id='kosa' className='border border-3 rounded'>
+        <div id='kosa' className='border border-3 rounded sticky-top'>
             <h3 className='text-center'>Kosár:</h3>
             <hr />
-            <table className='table'>
+            <table className='table mx-2'>
                 <tr>
-                    <th scope='col'>Név</th>
-                    <th scope='col'>Ár:</th>
+                    <th className='col-5'>Név</th>
+                    <th className='col-1'>Ár:</th>
                 </tr>
                 {
-                    kosar.map(elem => <tr><td>{elem.nev}</td><td>{elem.ar} Ft</td></tr>)
+                    kosar.map(elem => <tr><td className='col-5'>{elem.nev}</td><td className='col-1'>{elem.ar} Ft</td></tr>)
                 }
             </table>
             <hr />
