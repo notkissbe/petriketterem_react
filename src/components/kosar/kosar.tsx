@@ -40,7 +40,7 @@ export function Kosar() {
                 <h3 className='text-center'>Kosár:</h3>
                 <hr />
 
-                <p className='text-center'>Jelenleg sajnos üres :c</p>
+                <p className='text-center'>Jelenleg sajnos üres 🐘💥╾━╤デ╦︻ඞා</p>
             </div>
         )
     }
@@ -49,17 +49,17 @@ export function Kosar() {
         <div id='kosa' className='border border-3 rounded'>
             <h3 className='text-center'>Kosár:</h3>
             <hr />
-            <table>
+            <table className='table'>
                 <tr>
-                    <th>Név</th>
-                    <th>Ár:</th>
+                    <th scope='col'>Név</th>
+                    <th scope='col'>Ár:</th>
                 </tr>
                 {
-                    kosar.map(elem => <tr><td>{elem.nev}</td><td>{elem.ar}</td></tr>)
+                    kosar.map(elem => <tr><td>{elem.nev}</td><td>{elem.ar} Ft</td></tr>)
                 }
             </table>
             <hr />
-            <p className='mx-3'>Összeg: {osszeg}</p>
+            <p className='mx-3'>Összeg: {osszeg} Ft</p>
             <div className='row'>
             <button className='btn text-center' onClick={handleTorles}>Kosár ürítése</button>
             <button className='btn '>Rendelés</button>
