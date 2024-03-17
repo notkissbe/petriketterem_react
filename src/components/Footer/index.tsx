@@ -6,10 +6,16 @@ import { useEffect, useState } from "react";
 export function Footer() {
 
   const [nyit, setnyit] = useState([] as Nyitva[]);
-  const [unnep, setUnnep]=useState([] as Nyitva[]);
+  const [unnep, setUnnep]=useState([] as NyitvaU[]);
 
   interface Nyitva {
     nap:string;
+    kezdo_idopont: string;
+    veg_idopont: string;
+    zarva: number;
+  }
+  interface NyitvaU {
+    datum:Date;
     kezdo_idopont: string;
     veg_idopont: string;
     zarva: number;
@@ -19,18 +25,29 @@ export function Footer() {
     let eredmeny=await fetch('http://localhost:3000/nyitvatartas');
     let eredmeny2=await fetch('http://localhost:3000/unnepnapok');
     let nyitas:Nyitva[]=await eredmeny.json();
-    let nyitas2:Nyitva[]=await eredmeny2.json();
+    let nyitas2:NyitvaU[]=await eredmeny2.json();
 
     nyitas.forEach(element =>{
       if(element.zarva==1)
       {
-        //setnyit("ZÁRVA")
+        element.kezdo_idopont = "zárva"
+        element.veg_idopont = "zárva"
       }
     })
+    nyitas2.forEach(element =>{
+      if(element.zarva==1)
+      {
+        element.kezdo_idopont = "zarva"
+        element.veg_idopont = "zárva"
+      }
+    })
+    console.log("fetched")
     setnyit(nyitas);
     setUnnep(nyitas2);
   }
-  //load();
+  useState(()=>{
+    load();
+  });
 
 
   return (
@@ -64,7 +81,7 @@ export function Footer() {
             </tr>
           </thead>
           <tbody>
-            {unnep.map(u=><tr><td>{u.nap}</td><td>{u.kezdo_idopont}</td><td>{u.veg_idopont}</td></tr>)}
+            {unnep.map(u=><tr><td>{u.datum}</td><td>{u.kezdo_idopont}</td><td>{u.veg_idopont}</td></tr>)}
           </tbody>
           
         </table>
