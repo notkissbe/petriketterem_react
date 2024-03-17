@@ -23,22 +23,38 @@ export function CreateCard(props: Kartya) {
                 <div className="row">
                     <p className="col">{props.ar + " ft"}</p>
                     <p></p>
-                    <button className="col btn btn-outline-light btn-sm position-absolute bottom-0 start-0" /*onClick={KosarAdd(props.nev,props.ar)}*/>Törlés</button>
+                    <button className="col btn btn-outline-light btn-sm position-absolute bottom-0 start-0" onClick={()=>{handleTorles(props.nev,props.kategoria)}}>Törlés</button>
                 </div>
             </div>
         </div>
     )
 
 }
-export function DrawAdminDisplay({ term }: { term: string }) {
+function handleTorles(nev:string,kategoria:string){
+    console.log(kategoria)
+    if (window.confirm(`Biztosan törölni akarja a következőt?\n${nev}`)){
+        if(kategoria=="Nem alkoholos ital" || kategoria == "Alkoholos"){
+            fetch('http://localhost:3000/ital:' + encodeURI(nev),{
+                method: 'DELETE'
+            })
+        }
+        else{
+            fetch('http://localhost:3000/etel' + encodeURI(nev),{
+                method: 'DELETE'
+            })
+        }
+    }
+    window.dispatchEvent(new Event("torles"));
+}
 
+export function DrawAdminDisplay({ term }: { term: string }) {
+    
 
     const [kartyak, setKartyak] = useState([] as Kartya[]);
     //const [searchTerm, setSearchTerm] = useState('');
     //setSearchTerm(term);
-    let searchTerm = term;
+    let searchTerm = term;    
     
-
     useEffect(() => {
         async function load() {
             let eredmeny = await fetch('http://localhost:3000/etelek');
@@ -59,9 +75,10 @@ export function DrawAdminDisplay({ term }: { term: string }) {
 
         }
         load();
+        window.addEventListener("torles", load)
     }, [searchTerm])
-
-
+    
+    
     return (
         <div className="row">
             {/*<CreateCard nev="Elso" kategoria="sajtok" ar="22" allergenek="Tojas,gluten"/>*/}

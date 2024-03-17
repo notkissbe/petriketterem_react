@@ -30,6 +30,8 @@ function appendToStorage(name:string, data:KosarElem){
     localStorage.setItem("Kosar",JSON.stringify(datao));
     window.dispatchEvent(new Event("storage"))
 }   
+
+
 /*
 function KosarAdd(event:React.MouseEvent<HTMLButtonElement>,props:Kartya){
     console.log(event.target);

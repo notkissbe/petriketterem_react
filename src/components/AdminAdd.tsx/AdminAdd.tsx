@@ -47,7 +47,7 @@ export function AdminAdd(){
                 ar: target.ar.value,
                 image: target.kep.value
             }*/
-
+        e.currentTarget.children[20].classList.add("bg-success")
     };
     
     async function handleFileChange(e:React.SyntheticEvent){
